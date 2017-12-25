@@ -23,15 +23,16 @@
         :error-msg="validationErrors.password"
         @input="resetError('password')"></ip-input>
 
+      <div class="form-error" v-if="error">
+        {{error.reason}}
+      </div>
+
       <div class="form-actions">
         <button class="ip-button">SIGN UP</button>
         <div>
           Already have an account?
           <router-link :to="{name: 'signIn'}">Log in</router-link>
         </div>
-      </div>
-      <div class="form-error" v-if="error">
-        {{error.reason}}
       </div>
     </form>
     <loading v-if="isLoading"></loading>

@@ -23,6 +23,10 @@ const routes = [
     name: 'ideas',
     component: ManageIdeas,
   },
+  {
+    path: '*',
+    redirect: '/sign-in'
+  }
 ];
 
 

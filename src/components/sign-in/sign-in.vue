@@ -15,14 +15,14 @@
         v-model="formValues.password"
         :error-msg="validationErrors.password"
         @input="resetError('password')"></ip-input>
+      <div class="form-error" v-if="error">
+        {{error.reason}}
+      </div>
       <div class="form-actions">
         <button class="ip-button">LOG IN</button>
         <div>
           Don't have an account? <router-link :to="{name: 'signUp'}">Create an account</router-link>
         </div>
-      </div>
-      <div class="form-error" v-if="error">
-        {{error.reason}}
       </div>
     </form>
     <transition name="app">
