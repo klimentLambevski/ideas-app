@@ -1,7 +1,7 @@
 @import "../../styles/vars";
 
 .ip-input-container {
-  input {
+  .ip-input {
     width: 100%;
     border: none;
     border-bottom: 1px solid $clSecondary;
@@ -13,6 +13,9 @@
       background: transparent;
       border: none;
     }
+  }
+  .ip-input-disabled {
+    padding: 10px 0 15px 0;
   }
   .error-msg {
     padding: 5px 0;
