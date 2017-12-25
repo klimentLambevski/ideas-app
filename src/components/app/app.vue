@@ -17,6 +17,7 @@
   import Loading from '../loading/loading.vue'
   import {initAccessToken, clearAccessToken, getAccessToken} from "../../services/accessToken";
   import {getSelf} from "../../services/users";
+  import {mapState} from 'vuex';
 
   export default {
     components: {
@@ -27,6 +28,11 @@
     data: () => ({
       isLoading: true
     }),
+    computed: {
+      ...mapState({
+        thisUser: state => state.self.thisUser
+      })
+    },
     created() {
       initAccessToken();
 
@@ -36,10 +42,10 @@
       } else {
         getSelf()
           .then((self) => {
-            this.$router.push({name: 'ideas'});
             this.$store.commit('setSelf', self);
 
             this.$store.dispatch('getIdeas').then(res => {
+              this.$router.push({name: 'ideas'});
               this.isLoading = false;
             });
 
@@ -49,6 +55,16 @@
             this.isLoading = false;
           })
       }
+
+      this.$router.beforeEach((to, from, next) => {
+        if(this.thisUser && to.name !== 'ideas') {
+          next({name: 'ideas'});
+        } else if(!this.thisUser && to.name === 'ideas'){
+          next({name: 'signIn'})
+        } else {
+          next()
+        }
+      })
 
     }
   }
