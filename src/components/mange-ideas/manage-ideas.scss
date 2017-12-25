@@ -1,0 +1,107 @@
+@import '../../styles/vars';
+
+.manage-ideas {
+  flex: 1;
+  overflow: auto;
+  padding: 40px 80px;
+  overflow-y: auto;
+
+  &.no-ideas {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ideas-header {
+    padding-left: 30px;
+    padding-bottom: 30px;
+    padding-right: 15px;
+    border-bottom: 1px solid rgba(42, 56, 66, 0.2);
+    display: flex;
+    justify-content: space-between;
+
+    .title {
+      font-size: 1.8rem;
+    }
+
+    .create-button {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: $clBrand;
+      position: relative;
+      transition: 0.5s transform ease;
+
+      &:hover {
+        transform: scale(1.2);
+        cursor: pointer;
+      }
+
+      &:active {
+        transform: scale(1) !important;
+        cursor: pointer;
+        transition: 0.1s transform ease;
+      }
+
+      &:before, &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      &:before {
+        width: 60%;
+        border-top: 1px solid #fff;
+      }
+
+      &:after {
+        height: 60%;
+        border-right: 1px solid #fff;
+      }
+    }
+  }
+  .no-ideas-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex: 1;
+
+    img {
+      width: 70px;
+    }
+
+    .message {
+      font-size: 1.4rem;
+      margin-top: 10px;
+    }
+  }
+  .ideas-list {
+    position: relative;
+    padding-top: 40px;
+    flex: 1;
+  }
+
+  .idea-form-container {
+    transition: all 2s;
+    position: relative;
+  }
+  .idea-enter, .idea-leave-to {
+    opacity: 0;
+    transform: translateY(30px);
+    background: lighten($clBrand, 50);
+  }
+  .idea-leave-active {
+    position: absolute !important;
+    width: 100%;
+  }
+
+  .load-more-ideas {
+    padding: 30px 0;
+    text-align: center;
+    color: $clSecondary;
+    font-size: 1.2em;
+    cursor: pointer;
+  }
+}

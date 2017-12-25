@@ -1,0 +1,46 @@
+.idea-form-container {
+  @import '../../styles/vars';
+
+  .idea-form {
+    display: flex;
+    align-items: flex-end;
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(42,56,66,0.40);
+      margin-right: 15px;
+      margin-bottom: 20px;
+    }
+
+    .ip-input-container {
+      flex: 1;
+      input {
+        padding: 10px 0 15px 0;
+      }
+    }
+
+    .idea-form-action {
+      margin-left: 30px;
+      padding-bottom: 10px;
+      font-size: 1.2em;
+      cursor: pointer;
+      color: $clBrand;
+
+      &.green {
+        color: #23803e;
+      }
+
+      &.red {
+        color: #7b2929;
+      }
+    }
+  }
+
+  .validation-error {
+    padding: 10px 22px;
+    color: #ff3748;
+    font-size: 0.9em;
+  }
+}

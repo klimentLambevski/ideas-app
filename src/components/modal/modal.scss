@@ -1,0 +1,48 @@
+@import '../../styles/vars';
+
+.modal {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .modal-content {
+    background: #FFFFFF;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.30);
+    border-radius: 3px;
+    min-width: 280px;
+    padding: 30px 60px;
+
+    .title {
+      font-size: 1.8rem;
+      text-align: center;
+    }
+
+    .description {
+      text-align: center;
+      margin-top: 35px;
+      margin-bottom: 85px;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-around;
+
+      .cancel {
+        color: $clSecondary;
+      }
+      .ok {
+        color: $clBrand;
+      }
+
+      .cancel, .ok {
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+  }
+}

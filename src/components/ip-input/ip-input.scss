@@ -1,0 +1,22 @@
+@import "../../styles/vars";
+
+.ip-input-container {
+  input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid $clSecondary;
+    font-size: 1rem;
+    padding: 10px 0;
+    outline: none;
+
+    &:disabled {
+      background: transparent;
+      border: none;
+    }
+  }
+  .error-msg {
+    padding: 5px 0;
+    font-size: 0.9em;
+    color: #ff3748;
+  }
+}
