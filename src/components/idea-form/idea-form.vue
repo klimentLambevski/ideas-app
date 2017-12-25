@@ -30,18 +30,18 @@
         :label-style="'bold'"></input-select>
       <template v-if="editMode">
         <div class="idea-form-action green" @click="saveIdea">
-          <i class="fa fa-check"></i>
+          <img src="./Confirm_V.png" srcset="./Confirm_V.png 1x, ./Confirm_V@2x.png 2x"/>
         </div>
         <div class="idea-form-action red" @click="cancel">
-          <i class="fa fa-close"></i>
+          <img src="./Confirm_V.png" srcset="./Cancel_X.png 1x, ./Cancel_X@2x.png 2x"/>
         </div>
       </template>
       <template v-else>
-        <div class="idea-form-action" @click="editIdea">
-          <i class="fa fa-edit"></i>
+        <div class="idea-form-action edit" @click="editIdea">
+          <img src="./pen.png" srcset="./pen.png 1x, ./pen@2x.png 2x"/>
         </div>
-        <div class="idea-form-action" @click="$emit('delete')">
-          <i class="fa fa-remove"></i>
+        <div class="idea-form-action edit" @click="$emit('delete')">
+          <img src="./bin.png" srcset="./bin.png 1x, ./bin@2x.png 2x"/>
         </div>
       </template>
     </div>
@@ -109,10 +109,13 @@
       },
       cancel() {
         this.$emit('cancel');
+
         if (this.formValues.id) {
           this.editMode = false;
           this.formValues = _.clone(this.idea);
         }
+
+        this.error = false;
       },
       editIdea() {
         this.editMode = true;

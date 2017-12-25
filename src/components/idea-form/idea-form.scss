@@ -35,7 +35,19 @@
       &.red {
         color: #7b2929;
       }
+      &.edit {
+        opacity: 0;
+      }
     }
+
+    &:hover {
+      .idea-form-action {
+        &.edit {
+          opacity: 1;
+        }
+      }
+    }
+
   }
 
   .validation-error {
