@@ -2,7 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 require('./index.scss');
-
+Vue.config.devtools = true;
 Vue.use(VueRouter);
 
 import {router} from "./routes.js";
